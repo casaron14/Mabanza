@@ -1,21 +1,3 @@
-// Mobile menu toggle
-const menuBtn = document.getElementById('menuBtn');
-const navLinks = document.getElementById('navLinks');
-
-if (menuBtn && navLinks) {
-    menuBtn.addEventListener('click', () => {
-        menuBtn.classList.toggle('active');
-        navLinks.classList.toggle('open');
-    });
-
-    navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            menuBtn.classList.remove('active');
-            navLinks.classList.remove('open');
-        });
-    });
-}
-
 // Nav scroll effect
 const nav = document.getElementById('nav');
 if (nav) {
@@ -63,5 +45,13 @@ END:VCARD`;
         link.click();
         document.body.removeChild(link);
         URL.revokeObjectURL(url);
+    });
+}
+
+// Inkryptus download
+const downloadBtn = document.getElementById('downloadBtn');
+if (downloadBtn) {
+    downloadBtn.addEventListener('click', (e) => {
+        e.preventDefault();
     });
 }
