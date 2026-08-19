@@ -30,7 +30,7 @@ VERSION:3.0
 N:Mabanza;Kelvin;;;
 FN:Kelvin Mabanza
 ORG:UMOJA EXCHANGE
-TITLE:Crypto Merchant & Inkryptus IBO
+TITLE:Professional Crypto Merchant & Inkryptus IBO
 TEL;TYPE=CELL:+255778401894
 URL;TYPE=Instagram:https://instagram.com/umojaexchange
 URL;TYPE=WhatsApp:https://wa.me/255778401894
