@@ -17,6 +17,11 @@
     box-sizing: border-box;
 }
 
+::selection {
+    background: var(--accent);
+    color: var(--black);
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -27,6 +32,29 @@ body {
     color: var(--off-white);
     overflow-x: hidden;
     line-height: 1.6;
+    animation: fadeIn .6s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--black);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(201, 168, 76, .35);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent);
 }
 
 img {
@@ -150,6 +178,7 @@ img {
     color: var(--gray-light);
     text-decoration: none;
     transition: all .25s ease;
+    cursor: pointer;
 }
 
 .social-btn:hover {
@@ -160,27 +189,35 @@ img {
     box-shadow: 0 8px 24px rgba(201, 168, 76, .25);
 }
 
-/* Hero photo */
+/* Hero photo — positioned relative to .hero */
 .hero-photo {
     position: absolute;
     right: 6%;
     bottom: 0;
-    height: 100%;
+    height: 92%;
     width: 38%;
     z-index: 4;
     display: flex;
     align-items: flex-end;
     justify-content: center;
+    pointer-events: none;
 }
 
 .photo-frame {
     position: relative;
     width: 100%;
     max-width: 420px;
-    height: 88%;
+    height: 100%;
     display: flex;
     align-items: flex-end;
     justify-content: center;
+    border: 1px solid rgba(201, 168, 76, .12);
+    border-bottom: none;
+    transition: border-color .4s ease;
+}
+
+.photo-frame:hover {
+    border-color: rgba(201, 168, 76, .3);
 }
 
 .photo-frame::before {
@@ -280,11 +317,23 @@ img {
 .inkryptus-card {
     display: flex;
     justify-content: center;
-    padding: 10px;
+    padding: 48px 32px;
     background: var(--card-bg);
     border: 1px solid var(--card-border);
     border-radius: 24px;
     text-align: center;
+    transition: border-color .3s ease, box-shadow .3s ease;
+}
+
+.inkryptus-card:hover {
+    border-color: rgba(201, 168, 76, .2);
+    box-shadow: 0 0 40px rgba(201, 168, 76, .06);
+}
+
+.inkryptus-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .inkryptus-title {
@@ -300,6 +349,7 @@ img {
     color: var(--gray);
     line-height: 1.8;
     margin-bottom: 36px;
+    max-width: 480px;
 }
 
 .inkryptus-buttons {
@@ -355,6 +405,14 @@ img {
     color: var(--gray);
 }
 
+/* ========== FOCUS STATES ========== */
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
 /* ========== SCROLL ANIMATIONS ========== */
 .fade-up {
     opacity: 0;
@@ -403,10 +461,15 @@ img {
 
     .hero-photo {
         width: 44%;
+        right: 4%;
     }
 }
 
 @media (max-width: 780px) {
+    :root {
+        --section-gap: 48px;
+    }
+
     .nav {
         padding: 0 24px;
     }
@@ -458,11 +521,14 @@ img {
         height: 280px;
         margin: 30px auto 0;
         right: auto;
+        pointer-events: auto;
     }
 
     .photo-frame {
         height: 100%;
         max-width: 300px;
+        border-radius: 16px;
+        border-bottom: 1px solid rgba(201, 168, 76, .12);
     }
 
     .photo {
@@ -472,10 +538,6 @@ img {
 
     .scroll-indicator {
         display: none;
-    }
-
-    :root {
---section-gap: 48px;
     }
 
     .container {
@@ -511,9 +573,7 @@ img {
     }
 
     .inkryptus-card {
-        gap: 40px;
-        padding: 40px 28px;
-        text-align: center;
+        padding: 36px 20px;
     }
 
     .inkryptus-title {
@@ -522,5 +582,10 @@ img {
 
     .inkryptus-buttons {
         justify-content: center;
+    }
+
+    .btn {
+        padding: 12px 22px;
+        font-size: 13px;
     }
 }

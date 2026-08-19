@@ -51,7 +51,6 @@ END:VCARD`;
 // Inkryptus download
 const downloadBtn = document.getElementById('downloadBtn');
 if (downloadBtn) {
-    downloadBtn.addEventListener('click', (e) => {
-        e.preventDefault();
+    downloadBtn.addEventListener('click', () => {
     });
 }
