@@ -189,30 +189,24 @@ img {
     box-shadow: 0 8px 24px rgba(201, 168, 76, .25);
 }
 
-/* Hero photo — positioned relative to .hero */
+/* Hero photo — flows in content above socials */
 .hero-photo {
-    position: absolute;
-    right: 6%;
-    bottom: 0;
-    height: 92%;
-    width: 38%;
-    z-index: 4;
+    width: 220px;
+    margin: 0 auto 32px;
     display: flex;
-    align-items: flex-end;
     justify-content: center;
-    pointer-events: none;
 }
 
 .photo-frame {
     position: relative;
     width: 100%;
-    max-width: 420px;
-    height: 100%;
+    aspect-ratio: 3 / 4;
     display: flex;
     align-items: flex-end;
     justify-content: center;
     border: 1px solid rgba(201, 168, 76, .12);
-    border-bottom: none;
+    border-radius: 16px;
+    overflow: hidden;
     transition: border-color .4s ease;
 }
 
@@ -224,8 +218,7 @@ img {
     content: '';
     position: absolute;
     inset: 0;
-    border-radius: 0;
-    background: linear-gradient(180deg, transparent 40%, var(--black) 100%);
+    background: linear-gradient(180deg, transparent 60%, rgba(0, 0, 0, .4) 100%);
     z-index: 1;
     pointer-events: none;
 }
@@ -460,8 +453,8 @@ button:focus-visible {
     }
 
     .hero-photo {
-        width: 44%;
-        right: 4%;
+        width: 180px;
+        margin-bottom: 24px;
     }
 }
 
@@ -515,25 +508,16 @@ button:focus-visible {
     }
 
     .hero-photo {
-        position: relative;
-        width: 70%;
-        max-width: 300px;
-        height: 280px;
-        margin: 30px auto 0;
-        right: auto;
-        pointer-events: auto;
+        width: 200px;
+        margin: 24px auto 0;
     }
 
     .photo-frame {
-        height: 100%;
-        max-width: 300px;
         border-radius: 16px;
-        border-bottom: 1px solid rgba(201, 168, 76, .12);
     }
 
     .photo {
         object-position: top center;
-        border-radius: 16px;
     }
 
     .scroll-indicator {
@@ -568,8 +552,7 @@ button:focus-visible {
     }
 
     .hero-photo {
-        width: 80%;
-        height: 240px;
+        width: 180px;
     }
 
     .inkryptus-card {
